@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://animaciones/abanico.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://scripts/abanico.gd" type="Script" id=2]
+
+
+
+[node name="abanico" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 106.601, -35.8349 )
+rotation = 1.5708
+scale = Vector2( 0.15, 0.15 )
+frames = ExtResource( 1 )
+animation = "stop"
+centered = false

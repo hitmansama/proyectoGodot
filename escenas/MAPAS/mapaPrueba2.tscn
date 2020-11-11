@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://escenas/Objetos/personaje.tscn" type="PackedScene" id=1]
+[ext_resource path="res://escenas/Objetos/abanico.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://Importado/skyblue.jpg" type="Texture" id=4]
+[ext_resource path="res://recursos/suelos.tres" type="TileSet" id=5]
+[ext_resource path="res://escenas/Objetos/meta2x2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://escenas/Objetos/checkPoint.tscn" type="PackedScene" id=7]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 538.6, 354.119 )
+current = true
+limit_smoothed = true
+script = ExtResource( 3 )
+
+[node name="abanico" parent="." instance=ExtResource( 2 )]
+position = Vector2( 517.253, 1456.24 )
+rotation = -1.559
+
+[node name="pjPrincipal" parent="." instance=ExtResource( 1 )]
+position = Vector2( 506.958, 1194.4 )
+
+[node name="Label" type="Label" parent="pjPrincipal"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2048, 2048 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, -2.66968 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1, 1.1 )
+
+[node name="TileMap" type="TileMap" parent="." groups=[
+"obstaculos",
+]]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 48, 48 )
+format = 1
+tile_data = PoolIntArray( 524292, 93, 0, 524293, 66, 0, 524294, 66, 0, 524295, 66, 0, 524296, 66, 0, 524297, 66, 0, 524298, 66, 0, 524299, 66, 0, 524300, 66, 0, 524301, 66, 0, 524302, 66, 0, 524303, 66, 0, 524304, 92, 0, 524305, 106, 0, 589828, 67, 0, 589840, 62, 0, 655364, 67, 0, 655371, 106, 0, 655376, 62, 0, 720900, 67, 0, 720904, 106, 0, 720905, 106, 0, 720906, 106, 0, 720907, 106, 0, 720908, 106, 0, 720912, 62, 0, 786436, 67, 0, 786439, 106, 0, 786440, 106, 0, 786441, 106, 0, 786448, 62, 0, 851972, 67, 0, 851976, 106, 0, 851977, 106, 0, 851983, 106, 0, 851984, 62, 0, 917508, 67, 0, 917509, 106, 0, 917510, 106, 0, 917511, 106, 0, 917513, 106, 0, 917519, 106, 0, 917520, 62, 0, 983044, 64, 0, 983048, 106, 0, 983049, 106, 0, 983050, 106, 0, 983055, 106, 0, 983056, 71, 0, 983059, 106, 0, 983060, 106, 0, 1048580, 64, 0, 1048581, 104, 0, 1048582, 104, 0, 1048583, 104, 0, 1048584, 104, 0, 1048585, 104, 0, 1048586, 104, 0, 1048587, 104, 0, 1048588, 104, 0, 1048589, 106, 0, 1048591, 106, 0, 1048592, 71, 0, 1048593, 106, 0, 1048595, 106, 0, 1048596, 106, 0, 1048597, 106, 0, 1114116, 64, 0, 1114121, 106, 0, 1114122, 106, 0, 1114125, 106, 0, 1114127, 106, 0, 1114128, 71, 0, 1114129, 106, 0, 1114130, 106, 0, 1114131, 106, 0, 1114132, 106, 0, 1114133, 106, 0, 1179652, 64, 0, 1179657, 106, 0, 1179658, 106, 0, 1179663, 106, 0, 1179664, 71, 0, 1179665, 106, 0, 1179666, 106, 0, 1179667, 106, 0, 1179668, 106, 0, 1179669, 106, 0, 1245188, 67, 0, 1245193, 106, 0, 1245194, 106, 0, 1245199, 106, 0, 1245200, 62, 0, 1245201, 106, 0, 1245202, 106, 0, 1245203, 106, 0, 1245204, 106, 0, 1245205, 106, 0, 1310724, 67, 0, 1310729, 106, 0, 1310730, 106, 0, 1310735, 106, 0, 1310736, 62, 0, 1310737, 106, 0, 1310738, 106, 0, 1310739, 106, 0, 1310740, 106, 0, 1310741, 106, 0, 1376260, 67, 0, 1376266, 106, 0, 1376271, 106, 0, 1376272, 62, 0, 1376273, 106, 0, 1376274, 106, 0, 1376275, 106, 0, 1376276, 106, 0, 1376277, 106, 0, 1441796, 67, 0, 1441807, 106, 0, 1441808, 62, 0, 1441810, 106, 0, 1441811, 106, 0, 1441812, 106, 0, 1441813, 106, 0, 1507332, 67, 0, 1507339, 106, 0, 1507340, 106, 0, 1507343, 106, 0, 1507344, 62, 0, 1507346, 106, 0, 1507347, 106, 0, 1507348, 106, 0, 1572868, 67, 0, 1572871, 106, 0, 1572872, 106, 0, 1572874, 106, 0, 1572875, 106, 0, 1572876, 106, 0, 1572878, 106, 0, 1572879, 106, 0, 1572880, 62, 0, 1572881, 106, 0, 1572884, 106, 0, 1638404, 67, 0, 1638405, 106, 0, 1638408, 106, 0, 1638409, 106, 0, 1638410, 106, 0, 1638412, 106, 0, 1638413, 106, 0, 1638414, 106, 0, 1638415, 106, 0, 1638416, 62, 0, 1638417, 106, 0, 1703940, 67, 0, 1703946, 17, 0, 1703951, 106, 0, 1703952, 62, 0, 1769476, 13, 0, 1769477, 33, 0, 1769478, 33, 0, 1769479, 33, 0, 1769480, 33, 0, 1769481, 33, 0, 1769482, 33, 0, 1769483, 31, 0, 1769484, 33, 0, 1769485, 33, 0, 1769486, 33, 0, 1769487, 33, 0, 1769488, 20, 0, 1835023, 106, 0 )
+
+[node name="checkPoint" parent="TileMap" instance=ExtResource( 7 )]
+position = Vector2( 705.115, 820.561 )
+
+[node name="meta2x2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 489.949, 478.189 )
+siguienteMapa = "res://escenas/MAPAS/mapaPrueba2.tscn"

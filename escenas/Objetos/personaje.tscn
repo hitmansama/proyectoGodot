@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://animaciones/personaje.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://scripts/personaje.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 20.0
+height = 9.228
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 21.25
+height = 9.228
+
+[node name="pjPrincipal" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -3 )
+shape = SubResource( 1 )
+one_way_collision = true
+one_way_collision_margin = 2.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -3 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="Area2D" to="." method="colission"]
